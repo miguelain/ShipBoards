@@ -7,6 +7,7 @@ public class GameController {
     private List<Player> players = new LinkedList<>();
     private List<Board> boards = new LinkedList<>();
 
+
     public static void main(String[] args) {
 
         GameController controller = new GameController();
