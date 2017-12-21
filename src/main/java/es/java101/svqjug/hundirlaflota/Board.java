@@ -80,4 +80,26 @@ public class Board {
         }
             return numberOfShipsAlive;   // why not return ships.size(); , like getNumberOfShip() ?
     }
+
+    public void drawBoard(Board board) {
+
+
+
+        for (int i = 0; i < board.size; i++) {
+            for (int j = 0; j < board.size; j++) {
+                if (canFireInCell(i,j)) {
+                    System.out.println("   ");
+                } else {
+                    for (Ship ship : ships) {
+                        if ((ship.getX() == i && ship.getY() == j) && (!ship.getAlive())){
+                            System.out.println(" X ");
+                        } else {
+                            System.out.println(" * ");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
