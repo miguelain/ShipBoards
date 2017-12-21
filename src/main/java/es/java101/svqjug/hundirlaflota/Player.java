@@ -7,23 +7,25 @@ public class Player {
     private int numberOfPlayers = 0;
     private String name;
     private String id;
-
-    public class generateNewPlayer() {
-
-        BoardGenerator generator = new BoardGenerator();
-        Board board = generator.generateNewBoard();
-
-    }
+    private Board board;
 
     public Player() {
         numberOfPlayers++;
         this.name = askNewPlayerName();
         this.id = "Player " + numberOfPlayers;
-
+        this.board = createPlayerBoard();
     }
 
       public String getName() {
         return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 
     public int getNumberOfPlayer() {
@@ -38,4 +40,8 @@ public class Player {
         return name;
     }
 
+    public Board createPlayerBoard() {
+        BoardGenerator generator = new BoardGenerator();
+        return generator.generateNewBoard();
+    }
 }
