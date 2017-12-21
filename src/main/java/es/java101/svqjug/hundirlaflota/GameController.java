@@ -1,16 +1,23 @@
 package es.java101.svqjug.hundirlaflota;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class GameController {
+    private List<Player> players = new LinkedList<>();
+    private List<Board> boards = new LinkedList<>();
 
     public static void main(String[] args) {
 
-       GameController controller = new GameController();
+
+        GameController controller = new GameController();
+
+
 
        controller.gameIntro();
-
-        Player player1 = Player.generatePlayer(String name);
-
-        create player 2, create board 2
+       controller.addPlayer();
+       controller.addPlayer();
 
         start game
 
@@ -24,4 +31,11 @@ public class GameController {
                 "\n\t **** To Win, be the first to sink every ship on enemy player");
     }
 
+    public void addPlayer() {
+        players.add(new Player());
+        // pick last player object from list players, get his board and add it to boards list
+        int x = players.lastIndexOf(players);
+        Board oneboard = players.get(x).getBoard();
+        boards.add(oneboard);
+    }
 }
