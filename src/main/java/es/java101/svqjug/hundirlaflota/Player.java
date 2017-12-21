@@ -1,9 +1,12 @@
 package es.java101.svqjug.hundirlaflota;
 
+import java.util.Scanner;
+
 public class Player {
 
+    private int numberOfPlayers = 0;
     private String name;
-    private int numberOfPlayer = 0;
+    private String id;
 
     public class generateNewPlayer() {
 
@@ -12,10 +15,10 @@ public class Player {
 
     }
 
-    public Player(String name) {
-        this.name = name;
-        numberOfPlayer++;
-        String playerNumber = "Player " + numberOfPlayer;
+    public Player() {
+        numberOfPlayers++;
+        this.name = askNewPlayerName();
+        this.id = "Player " + numberOfPlayers;
 
     }
 
@@ -24,8 +27,15 @@ public class Player {
     }
 
     public int getNumberOfPlayer() {
-        return numberOfPlayer;
+        return numberOfPlayers;
     }
 
+    public String askNewPlayerName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.printf("\n\t **** Player " + numberOfPlayers + " name: ...");
+        String name = scanner.nextLine();
+
+        return name;
+    }
 
 }

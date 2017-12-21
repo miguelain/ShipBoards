@@ -2,11 +2,26 @@ package es.java101.svqjug.hundirlaflota;
 
 public class GameController {
 
-    create player 1 , create board 1
+    public static void main(String[] args) {
 
-    create player 2 , create board 2
+       GameController controller = new GameController();
 
-    start game
+       controller.gameIntro();
 
-    show results
+        Player player1 = Player.generatePlayer(String name);
+
+        create player 2, create board 2
+
+        start game
+
+        show results
+    }
+
+    public void gameIntro() {
+        System.out.println("\t **** Welcome to this.GameOfShips \n\t **** Rules:");
+        System.out.printf("\n\t **** In order to start a new Game Of Ships you will need 2 players" +
+                "\n\t **** In this ver 2.0 , each player has a random board build with 10 ships" +
+                "\n\t **** To Win, be the first to sink every ship on enemy player");
+    }
+
 }
