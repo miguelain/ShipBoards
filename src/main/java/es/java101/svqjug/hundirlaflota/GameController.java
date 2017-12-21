@@ -16,8 +16,8 @@ public class GameController {
 
 
        controller.gameIntro();
-       controller.addPlayer();
-       controller.addPlayer();
+       controller.addPlayer( 0);
+       controller.addPlayer(1);
 
         start game
 
@@ -31,11 +31,8 @@ public class GameController {
                 "\n\t **** To Win, be the first to sink every ship on enemy player");
     }
 
-    public void addPlayer() {
+    public void addPlayer(int x) {
         players.add(new Player());
-        // pick last player object from list players, get his board and add it to boards list
-        int x = players.lastIndexOf(players);
-        Board oneboard = players.get(x).getBoard();
-        boards.add(oneboard);
+        boards.add(players.get(x).getBoard());
     }
 }
