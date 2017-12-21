@@ -44,6 +44,11 @@ public class GameController {
     }
 
     private void startGame() {
-        new Turn(players.get(0).getName());
+
+        int x = players.get(0).shootAxis("x");
+        int y = players.get(0).shootAxis("y");
+        if (players.get(0).getBoard().canFireInCell(x, y)) {
+            players.get(0).getBoard().fireInCell(x,y);
+        }
     }
 }

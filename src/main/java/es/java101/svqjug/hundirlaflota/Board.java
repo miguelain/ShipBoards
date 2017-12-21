@@ -38,12 +38,6 @@ public class Board {
 
     public boolean canFireInCell(int x, int y){
 
-        for (Ship ship : ships) {
-            if ((ship.getX() == x && ship.getY() == y) && (ship.getAlive())){
-                return true;
-            }
-        }
-
         if (cells.isEmpty()) {
             return true;
         } else {
@@ -51,6 +45,12 @@ public class Board {
                 if ((cell.getX() == x && cell.getY() == y) && !cell.getUsed()) {
                     return true;
                 }
+            }
+        }
+
+        for (Ship ship : ships) {
+            if ((ship.getX() == x && ship.getY() == y) && (ship.getAlive())){
+                return true;
             }
         }
         return false;
