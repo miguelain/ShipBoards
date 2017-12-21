@@ -81,12 +81,12 @@ public class Board {
             return numberOfShipsAlive;   // why not return ships.size(); , like getNumberOfShip() ?
     }
 
-    public void drawBoard(Board board) {
+    public void drawBoard(Player enemyPlayer) {
 
+        Board enemyBoard = enemyPlayer.getBoard();
 
-
-        for (int i = 0; i < board.size; i++) {
-            for (int j = 0; j < board.size; j++) {
+        for (int i = 0; i < enemyBoard.size; i++) {
+            for (int j = 0; j < enemyBoard.size; j++) {
                 if (canFireInCell(i,j)) {
                     System.out.println("   ");
                 } else {
