@@ -10,18 +10,17 @@ public class GameController {
 
     public static void main(String[] args) {
 
-
         GameController controller = new GameController();
 
+        controller.gameIntro();
+        controller.addPlayer( 0);
+        controller.addPlayer(1);
 
+        System.out.println("\n\t **** " + controller.players.get(0).getName() + " Vs " + controller.players.get(1).getName() + " ****");
+        System.out.println("\n\t *************** F I G H T ***************");
+        controller.startGame();
 
-       controller.gameIntro();
-       controller.addPlayer( 0);
-       controller.addPlayer(1);
-
-        start game
-
-        show results
+        // show results
     }
 
     public void gameIntro() {
@@ -34,5 +33,9 @@ public class GameController {
     public void addPlayer(int x) {
         players.add(new Player());
         boards.add(players.get(x).getBoard());
+    }
+
+    private void startGame() {
+
     }
 }
