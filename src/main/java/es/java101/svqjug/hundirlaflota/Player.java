@@ -44,4 +44,12 @@ public class Player {
         BoardGenerator generator = new BoardGenerator();
         return generator.generateNewBoard();
     }
+
+    public int shootAxis(String axis) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\n\t *** Player " + name + axis + "axis shoot: ***");
+        int x = scanner.nextInt();
+
+        return x;
+    }
 }
