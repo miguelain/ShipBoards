@@ -7,21 +7,23 @@ public class GameController {
     private List<Player> players = new LinkedList<>();
     private List<Board> boards = new LinkedList<>();
 
-
     public static void main(String[] args) {
 
         GameController controller = new GameController();
+        Player player1, player2;
 
         controller.gameIntro();
         controller.addPlayer( 0);
+        player1 = controller.players.get(0);
         controller.addPlayer(1);
+        player2 = controller.players.get(1);
 
-        System.out.println("\n\t **** " + controller.players.get(0).getName() + " Vs " + controller.players.get(1).getName() + " ****");
+        System.out.println("\n\t **** " + player1.getName() + " Vs " + player2.getName() + " ****");
         System.out.println("\n\t *************** F I G H T ***************");
 
         controller.shootIntro();
 
-        controller.startGame();
+        controller.startGame(player1, player2);
 
         // show results
     }
@@ -44,12 +46,15 @@ public class GameController {
         boards.add(players.get(x).getBoard());
     }
 
-    private void startGame() {
+    private void startGame(Player player1, Player player2) {
+        Board board1 = player1.getBoard();
+        Board board2 = player2.getBoard();
 
-        int x = players.get(0).shootAxis("x");
-        int y = players.get(0).shootAxis("y");
-        if (players.get(0).getBoard().canFireInCell(x, y)) {
-            players.get(0).getBoard().fireInCell(x,y);
+        int x = player1.shootAxis("x");
+        int y = player1.shootAxis("y");
+        if (board1.canFireInCell(x, y)) {
+            board1.fireInCell(x,y);
         }
     }
+
 }
