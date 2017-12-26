@@ -86,7 +86,7 @@ public class Board {
             return numberOfShipsAlive;   // why not return ships.size(); , like getNumberOfShip() ?
     }
 
-    public void drawBoard(Player enemyPlayer) {
+    public void drawBoard(Player enemyPlayer) { // need repair
 
         Board enemyBoard = enemyPlayer.getBoard();
         boolean printOK = false;
