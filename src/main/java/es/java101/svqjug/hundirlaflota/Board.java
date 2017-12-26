@@ -61,12 +61,17 @@ public class Board {
         Cell cell = new Cell(x,y);
         cell.usedCell();
         cells.add(cell);
+        boolean hitShip = false;
 
         for (Ship ship : ships) {
             if (ship.getX() == x && ship.getY() == y) {
                 ship.sinkShip();
-                System.out.println("Barco Hundido");
+                System.out.println(" * * * * K A B O O O M ! ! ! Ship Destroyed !");
+                hitShip = true;
             }
+        }
+        if (!hitShip) {
+            System.out.println("No enemy found there captain, miss shoot");
         }
     }
 

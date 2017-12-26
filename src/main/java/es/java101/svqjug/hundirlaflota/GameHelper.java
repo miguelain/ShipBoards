@@ -49,15 +49,23 @@ public class GameHelper {
 
         Board board1 = player1.getBoard();
         Board board2 = player2.getBoard();
+        boolean shootOK = false;
 
-        int x = player1.shootAxis("x");
-        int y = player1.shootAxis("y");
-        if (board1.canFireInCell(x, y)) {
-            board1.fireInCell(x,y);
-        }
+        do {
+            int x = player1.shootAxis("x");
+            int y = player1.shootAxis("y");
+            shootOK = board2.canFireInCell(x,y);
+            if (shootOK) {
+                board2.fireInCell(x, y);
+            } else {
+                System.out.println("This shoot in x: " + x + " y: " + y + " already has been done \n\t Please shoot again...");
+            }
+        } while (!shootOK);
+
         if (askForDrawBoard().equalsIgnoreCase("y")) {
             board2.drawBoard(player2);
         }
+
     }
 
 }
