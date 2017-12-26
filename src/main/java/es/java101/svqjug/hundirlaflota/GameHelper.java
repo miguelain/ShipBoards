@@ -45,15 +45,14 @@ public class GameHelper {
         return false;
     }
 
-    public void startGame(Player player1, Player player2) {
+    public void playerTurn(Player playerTurn, Player enemyPlayer) {
 
-        Board board1 = player1.getBoard();
-        Board board2 = player2.getBoard();
-        boolean shootOK = false;
+        Board board2 = enemyPlayer.getBoard();
+        boolean shootOK;
 
         do {
-            int x = player1.shootAxis("x");
-            int y = player1.shootAxis("y");
+            int x = playerTurn.shootAxis("x");
+            int y = playerTurn.shootAxis("y");
             shootOK = board2.canFireInCell(x,y);
             if (shootOK) {
                 board2.fireInCell(x, y);
@@ -63,7 +62,7 @@ public class GameHelper {
         } while (!shootOK);
 
         if (askForDrawBoard().equalsIgnoreCase("y")) {
-            board2.drawBoard(player2);
+            board2.drawBoard(enemyPlayer);
         }
 
     }

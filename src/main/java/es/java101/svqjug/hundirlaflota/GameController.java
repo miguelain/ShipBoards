@@ -25,7 +25,10 @@ public class GameController {
 
         gameHelper.shootIntro();
 
-        gameHelper.startGame(player1, player2);
+        do {
+            gameHelper.playerTurn(player1, player2);
+            gameHelper.playerTurn(player2, player1);
+        } while (player1.getBoard().getNumberOfShipAlive() == 0 || player2.getBoard().getNumberOfShipAlive() == 0);
 
         // show results
     }
