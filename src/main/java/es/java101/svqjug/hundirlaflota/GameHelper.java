@@ -14,9 +14,9 @@ public class GameHelper {
 
     public void shootIntro() {
 
-        System.out.println("\n\t **** Make shoots to sink enemy Ships");
-        System.out.println("\n\t **** A shoot is made by hitting 2 positions");
-        System.out.println("\n\t *** First a hit for x Axis \u2192 , then a hit for Y Axis \u2193 ");
+        System.out.printf("\n\t **** Make shoots to sink enemy Ships" +
+        "\n\t **** A shoot is made by hitting 2 positions" +
+        "\n\t *** First a hit for x Axis \u2192 , then a hit for Y Axis \u2193 ");
     }
 
     public String askForDrawBoard() {

@@ -89,22 +89,30 @@ public class Board {
     public void drawBoard(Player enemyPlayer) {
 
         Board enemyBoard = enemyPlayer.getBoard();
+        boolean printOK = false;
 
+        System.out.print("    0  1  2  3  4  5  6  7  8  9 ");
         for (int i = 0; i < enemyBoard.size; i++) {
+            System.out.println();
+            System.out.print(" " + i + " ");
             for (int j = 0; j < enemyBoard.size; j++) {
-                if (canFireInCell(i,j)) {
-                    System.out.println("   ");
+
+                if (enemyBoard.canFireInCell(i,j)) {
+                    System.out.print("   ");
                 } else {
-                    for (Ship ship : ships) {
-                        if ((ship.getX() == i && ship.getY() == j) && (!ship.getAlive())){
-                            System.out.println(" X ");
-                        } else {
-                            System.out.println(" * ");
+                    for (Ship ship : enemyBoard.ships) {
+                        if ((ship.getX() == i && ship.getY() == j) && (!ship.getAlive())) {
+                            System.out.print(" X ");
+                            printOK = true;
                         }
+                    }
+                    if (!printOK) {
+                        System.out.print(" * ");
                     }
                 }
             }
         }
+        System.out.println();
     }
 
 }
