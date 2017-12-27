@@ -13,6 +13,8 @@ public class GameController {
         GameController controller = new GameController();
         GameHelper gameHelper = new GameHelper();
         Player player1, player2;
+        Board board1, board2;
+        int player1ShipsAlive, player2ShipsAlive;
 
         gameHelper.gameIntro();
         controller.addPlayer( 0);
@@ -28,7 +30,10 @@ public class GameController {
         do {
             gameHelper.playerTurn(player1, player2);
             gameHelper.playerTurn(player2, player1);
-        } while (player1.getBoard().getNumberOfShipAlive() == 0 || player2.getBoard().getNumberOfShipAlive() == 0);
+            player1ShipsAlive = player1.getBoard().getNumberOfShipAlive();
+            player2ShipsAlive = player2.getBoard().getNumberOfShipAlive();
+
+        } while ((player1ShipsAlive != 0) || (player2ShipsAlive != 0));
 
         // show results
     }
