@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Player {
 
-    private int numberOfPlayers = 0;
+    private static int numberOfPlayers = 0;
     private String name;
     private String id;
     private Board board;
