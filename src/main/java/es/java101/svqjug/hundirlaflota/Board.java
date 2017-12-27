@@ -89,29 +89,40 @@ public class Board {
     public void drawBoard(Player enemyPlayer) { // need repair
 
         Board enemyBoard = enemyPlayer.getBoard();
-        boolean printOK = false;
+        boolean printOK;
 
         System.out.print("    0  1  2  3  4  5  6  7  8  9 ");
         for (int i = 0; i < enemyBoard.size; i++) {
             System.out.println();
             System.out.print(" " + i + " ");
             for (int j = 0; j < enemyBoard.size; j++) {
+                printOK = false;
 
-                if (enemyBoard.canFireInCell(i,j)) {
-                    System.out.print("   ");
-                } else {
-                    for (Ship ship : enemyBoard.ships) {
-                        if ((ship.getX() == i && ship.getY() == j) && (!ship.getAlive())) {
-                            System.out.print(" X ");
-                            printOK = true;
-                        }
-                    }
-                    if (!printOK) {
-                        System.out.print(" * ");
+                for (Ship ship : enemyBoard.ships) {
+                    if ((ship.getX() == i && ship.getY() == j) && !ship.getAlive()) {
+                        System.out.print(" X ");
+                        printOK = true;
+                        break;
                     }
                 }
-            }
-        }
+
+                if (!printOK) {
+                    for (Cell cell : enemyBoard.cells) {
+                        if ((cell.getX() == i && cell.getY() == j) && cell.getUsed()) {
+                            System.out.print(" * ");
+                            printOK = true;
+                            break;
+                        }
+                    }
+
+                    if (!printOK) {
+                        System.out.print("   ");
+                    }
+                }
+
+            } // end for j
+        } // end for i
+
         System.out.println();
     }
 
