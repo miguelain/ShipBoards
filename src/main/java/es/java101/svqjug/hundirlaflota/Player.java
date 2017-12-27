@@ -47,7 +47,7 @@ public class Player {
 
     public int shootAxis(String axis) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\t *** Player " + name + ", " + axis + " axis shoot: ");
+        System.out.println("\n\t *** Player " + name + ", " + axis + " axis shoot: ");
         int x = scanner.nextInt();
 
         return x;
