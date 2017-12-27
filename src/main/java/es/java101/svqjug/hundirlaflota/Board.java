@@ -38,22 +38,22 @@ public class Board {
 
     public boolean canFireInCell(int x, int y){
 
-        if (cells.isEmpty()) {
-            return true;
-        } else {
-            for (Cell cell : cells) {
-                if ((cell.getX() == x && cell.getY() == y) && !cell.getUsed()) {
-                    return true;
-                }
+        boolean itsFree = true;
+
+        for (Ship ship : ships) {
+            if ((ship.getX() == x && ship.getY() == y) && !ship.getAlive()){
+                itsFree = false;
             }
         }
 
-        for (Ship ship : ships) {
-            if ((ship.getX() == x && ship.getY() == y) && (ship.getAlive())){
-                return true;
+        if (itsFree) {
+            for (Cell cell : cells) {
+                if ((cell.getX() == x && cell.getY() == y) && cell.getUsed()) {
+                    itsFree = false;
+                }
             }
         }
-        return false;
+        return itsFree;
     }
 
     public void fireInCell(int x, int y){

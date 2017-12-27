@@ -47,22 +47,22 @@ public class GameHelper {
 
     public void playerTurn(Player playerTurn, Player enemyPlayer) {
 
-        Board board2 = enemyPlayer.getBoard();
+        Board enemyBoard = enemyPlayer.getBoard();
         boolean shootOK;
 
         do {
             int x = playerTurn.shootAxis("x");
             int y = playerTurn.shootAxis("y");
-            shootOK = board2.canFireInCell(x,y);
+            shootOK = enemyBoard.canFireInCell(x,y);
             if (shootOK) {
-                board2.fireInCell(x, y);
+                enemyBoard.fireInCell(x, y);
             } else {
                 System.out.println("This shoot in x: " + x + " y: " + y + " already has been done \n\t Please shoot again...");
             }
         } while (!shootOK);
 
         if (askForDrawBoard().equalsIgnoreCase("y")) {
-            board2.drawBoard(enemyPlayer);
+            enemyBoard.drawBoard(enemyPlayer);
         }
 
     }
